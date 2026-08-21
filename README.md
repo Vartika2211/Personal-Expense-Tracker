@@ -96,5 +96,3 @@ Recent Transactions Updated
 ## Author
  Vartika Gosai
 
-Users can also add new income or expense transactions using an interactive modal.
-
