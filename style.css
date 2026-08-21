@@ -1,0 +1,938 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f6f7f8;
+    color: #1d2939;
+    min-height: 100vh;
+}
+.header {
+    height: 75px;
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 45px;
+
+    border-bottom: 1px solid #edf0f2;
+}
+
+.header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.dropdown,
+.date-picker,
+.filter-btn {
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background: #ffffff;
+
+    border: 1px solid #edf0f2;
+    border-radius: 7px;
+
+    padding: 0 14px;
+
+    font-size: 12px;
+    color: #667085;
+
+    cursor: pointer;
+}
+
+.add-expense-btn {
+    height: 38px;
+
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #ef5350;
+    color: white;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.main-content {
+    max-width: 1500px;
+    margin: auto;
+
+    padding: 30px 45px;
+}
+
+.top-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        300px;
+
+    gap: 22px;
+
+    margin-bottom: 25px;
+}
+
+.summary-card,
+.panel {
+    background: #ffffff;
+
+    border: 1px solid #f0f1f3;
+    border-radius: 10px;
+}
+
+.summary-card {
+    min-height: 205px;
+
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-label {
+    color: #667085;
+    font-size: 13px;
+}
+
+.dots-btn {
+    border: none;
+    background: transparent;
+
+    color: #98a2b3;
+
+    cursor: pointer;
+}
+
+.summary-card h2 {
+    font-size: 27px;
+    margin-top: 18px;
+
+    color: #1d2939;
+}
+
+.positive {
+    margin-top: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: #17b26a;
+
+    font-size: 11px;
+}
+
+.my-card {
+    position: relative;
+
+    min-height: 285px;
+
+    padding: 24px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0c795b,
+            #0b8b65
+        );
+
+    color: white;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 20px rgba(0, 100, 80, 0.18);
+}
+
+.my-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border-radius: 50%;
+
+    top: -130px;
+    right: -100px;
+}
+
+.my-card h3 {
+    font-size: 14px;
+}
+
+.my-card p {
+    font-size: 10px;
+
+    margin-top: 7px;
+
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.card-dots {
+    color: white;
+}
+
+.card-chip {
+    width: 30px;
+    height: 22px;
+
+    margin-top: 22px;
+
+    border-radius: 4px;
+
+    background: linear-gradient(
+        135deg,
+        #f4b942,
+        #d89319
+    );
+
+    position: relative;
+}
+
+.card-chip::after {
+    content: "";
+
+    position: absolute;
+
+    top: 4px;
+    bottom: 4px;
+    left: 6px;
+    right: 6px;
+
+    border: 1px solid rgba(80, 50, 0, 0.5);
+}
+
+.card-number {
+    margin-top: 20px;
+
+    font-size: 15px;
+    letter-spacing: 3px;
+
+    font-family: monospace;
+}
+
+.card-bottom {
+    margin-top: 22px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.card-bottom span {
+    display: block;
+
+    font-size: 9px;
+
+    opacity: 0.65;
+}
+
+.card-bottom strong {
+    font-size: 12px;
+}
+
+.card-logo {
+    display: flex;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+}
+
+.red {
+    background: #eb4b46;
+}
+
+.orange {
+    background: #f2a82c;
+
+    margin-left: -12px;
+}
+
+.spending-info {
+    margin-top: 15px;
+}
+
+.spending-row {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 10px;
+
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 5px;
+
+    background: rgba(255, 255, 255, 0.25);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 78%;
+    height: 100%;
+
+    background: #f5b32f;
+
+    border-radius: 10px;
+}
+.dashboard-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 2.1fr)
+        minmax(320px, 1fr);
+
+    gap: 25px;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.panel {
+    padding: 24px;
+}
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.panel-header h3 {
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #344054;
+}
+
+.overview-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.small-dropdown {
+    height: 34px;
+}
+
+.filter-btn {
+    height: 34px;
+}
+
+.chart-wrapper {
+    position: relative;
+}
+
+.chart-area {
+    height: 280px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 30px 10px 0;
+
+    border-bottom: 1px solid #eef0f2;
+}
+
+.chart-bar-group {
+    flex: 1;
+
+    height: 100%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    position: relative;
+
+    gap: 3px;
+
+    padding-bottom: 30px;
+}
+
+.chart-bar-group span {
+    position: absolute;
+
+    bottom: 0;
+
+    font-size: 10px;
+
+    color: #98a2b3;
+}
+
+.chart-bar {
+    width: 12px;
+
+    border-radius: 3px 3px 0 0;
+
+    transition: 0.25s ease;
+
+    cursor: pointer;
+}
+
+.income-bar {
+    background: #16a085;
+}
+
+.expense-bar {
+    background: #ef8f30;
+}
+
+.chart-bar:hover {
+    transform: translateY(-5px);
+}
+
+.active-month::before {
+    content: "";
+
+    position: absolute;
+
+    height: 230px;
+    width: 1px;
+
+    top: 0;
+
+    background: #e4e7ec;
+
+    z-index: 0;
+}
+.chart-tooltip {
+    position: absolute;
+
+    left: 30%;
+    top: 15px;
+
+    transform: translateX(-50%);
+
+    background: white;
+
+    padding: 10px 13px;
+
+    border-radius: 7px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.1);
+
+    font-size: 10px;
+
+    z-index: 10;
+
+    min-width: 120px;
+}
+
+.tooltip-month {
+    display: block;
+
+    color: #667085;
+}
+
+.chart-tooltip strong {
+    font-size: 11px;
+}
+
+.tooltip-income {
+    color: #16a085;
+
+    margin-top: 5px;
+}
+
+.tooltip-expense {
+    color: #ef8f30;
+
+    margin-top: 3px;
+}
+.expenses-panel {
+    min-height: 480px;
+}
+
+.total-expense {
+    font-size: 25px;
+
+    margin-bottom: 25px;
+
+    color: #1d2939;
+}
+
+.expense-tabs {
+    display: flex;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid #edf0f2;
+
+    margin-bottom: 20px;
+}
+
+.tab {
+    flex: 1;
+
+    border: none;
+    background: transparent;
+
+    padding-bottom: 12px;
+
+    font-size: 11px;
+
+    color: #98a2b3;
+
+    cursor: pointer;
+
+    position: relative;
+}
+
+.active-tab {
+    color: #344054;
+
+    font-weight: 600;
+}
+
+.active-tab::after {
+    content: "";
+
+    position: absolute;
+
+    left: 20%;
+    right: 20%;
+    bottom: -1px;
+
+    height: 2px;
+
+    background: #16a085;
+}
+
+.expense-line {
+    width: 100%;
+    height: 5px;
+
+    background: #eef0f2;
+
+    border-radius: 10px;
+
+    margin-bottom: 25px;
+}
+
+.line-fill {
+    height: 100%;
+    width: 100%;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #ef8f30 0%,
+        #f5b32f 40%,
+        #16a085 100%
+    );
+}
+
+.expense-category-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.expense-category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 11px;
+}
+
+.category-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #667085;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+}
+
+.health-dot {
+    background: #ef8f30;
+}
+
+.entertainment-dot {
+    background: #f5b32f;
+}
+
+.shopping-dot {
+    background: #8b5cf6;
+}
+
+.transport-dot {
+    background: #16a085;
+}
+
+.expense-category strong {
+    color: #475467;
+}
+
+.expense-footer {
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 20px;
+}
+
+.expense-footer button {
+    border: none;
+    background: transparent;
+
+    font-size: 11px;
+
+    color: #667085;
+
+    cursor: pointer;
+
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.transactions-panel {
+    min-height: 260px;
+}
+
+.view-all-btn {
+    border: none;
+
+    background: transparent;
+
+    color: #16a085;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid #f2f4f7;
+}
+
+.transaction-left {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.transaction-icon {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shopping {
+    background: #fff1e5;
+    color: #ef8f30;
+}
+
+.income {
+    background: #e9f9f3;
+    color: #16a085;
+}
+
+.food {
+    background: #fff4e8;
+    color: #f5a623;
+}
+
+.transaction-left strong {
+    display: block;
+
+    font-size: 12px;
+
+    color: #344054;
+}
+
+.transaction-left span {
+    display: block;
+
+    font-size: 10px;
+
+    color: #98a2b3;
+
+    margin-top: 3px;
+}
+
+.transaction-expense {
+    color: #ef5350;
+
+    font-size: 12px;
+}
+
+.transaction-income {
+    color: #16a085;
+
+    font-size: 12px;
+}
+
+.floating-buttons {
+    position: fixed;
+
+    right: 28px;
+    bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    z-index: 100;
+}
+
+.floating-btn {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.15);
+
+    transition: 0.2s;
+}
+
+.floating-btn:hover {
+    transform: scale(1.08);
+}
+
+.plus-btn {
+    background: #16a085;
+}
+
+.minus-btn {
+    background: #ef5350;
+}
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.4);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: 360px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    position: relative;
+}
+
+.modal-content h2 {
+    font-size: 20px;
+
+    margin-bottom: 20px;
+}
+
+.modal-content input,
+.modal-content select {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 12px;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 7px;
+
+    outline: none;
+}
+
+.close-modal {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.save-transaction {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #16a085;
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+
+    .top-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .my-card {
+        grid-column: 1 / -1;
+    }
+
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .header {
+        height: auto;
+
+        padding: 20px;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .header-controls {
+        flex-wrap: wrap;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .top-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .my-card {
+        grid-column: auto;
+    }
+
+    .chart-area {
+        gap: 3px;
+    }
+
+    .chart-bar {
+        width: 7px;
+    }
+
+    .chart-tooltip {
+        display: none;
+    }
+
+    .date-picker {
+        display: none;
+    }
+
+}

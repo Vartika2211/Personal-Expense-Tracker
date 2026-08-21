@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personal Expense Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>>
+
+    <header class="header">
+
+        <h1>Hello,There!!</h1>
+
+        <div class="header-controls">
+
+            <button class="dropdown" id="periodBtn">
+                <span id="periodText">Day</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+
+            <div class="date-picker">
+                <i class="fas fa-calendar"></i>
+                <span>23 August 2026</span>
+            </div>
+
+            <button class="add-expense-btn" id="addExpenseBtn">
+                <i class="fas fa-plus"></i>
+                Add
+            </button>
+
+        </div>
+
+    </header>
+
+    <main class="main-content">
+
+        <section class="top-grid">
+
+
+            <div class="summary-card">
+
+                <div class="card-top">
+                    <span class="card-label">Monthly Income</span>
+
+                    <button class="dots-btn">
+                        <i class="fas fa-ellipsis"></i>
+                    </button>
+                </div>
+
+                <h2 id="incomeAmount">Rs 50,645.00</h2>
+
+                <p class="positive">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>13% vs last month</span>
+                </p>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div class="card-top">
+                    <span class="card-label">Monthly Expenses</span>
+
+                    <button class="dots-btn">
+                        <i class="fas fa-ellipsis"></i>
+                    </button>
+                </div>
+
+                <h2 id="expenseAmount">RS 20,895.00</h2>
+
+                <p class="positive">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>12% vs last month</span>
+                </p>
+
+            </div>
+
+            <div class="my-card">
+
+                <div class="card-top">
+
+                    <div>
+                        <h3>My Card</h3>
+                        <p>Linked to your primary account</p>
+                    </div>
+
+                    <button class="dots-btn card-dots">
+                        <i class="fas fa-ellipsis"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="card-chip"></div>
+
+                <div class="card-number">
+                    5635 2764 0098 1234
+                </div>
+
+
+                <div class="card-bottom">
+
+                    <div>
+                        <span>Card Holder</span>
+                        <strong>Vartika</strong>
+                    </div>
+
+                    <div class="card-logo">
+                        <div class="circle red"></div>
+                        <div class="circle orange"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="spending-info">
+
+                    <div class="spending-row">
+                        <span>Spending Limit</span>
+                        <strong>RS 14,645.00</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="dashboard-layout">
+
+            <div class="left-column">
+
+                <section class="panel overview-panel">
+
+                    <div class="panel-header">
+
+                        <h3>Overview</h3>
+
+                        <div class="overview-controls">
+
+                            <button class="dropdown small-dropdown">
+                                Year
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+
+                            <button class="filter-btn">
+                                <i class="fas fa-filter"></i>
+                                Filter
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="chart-wrapper">
+
+                        <div class="chart-tooltip">
+
+                            <span class="tooltip-month">April</span>
+
+                            <strong id="tooltipYear">2025</strong>
+
+                            <div class="tooltip-income">
+                                Income: RS 50,645
+                            </div>
+
+                            <div class="tooltip-expense">
+                                Expenses: RS 20,895
+                            </div>
+
+                        </div>
+
+
+                        <div class="chart-area" id="chartArea">
+
+                            <div class="chart-bar-group">
+                                <div class="chart-bar income-bar" style="height: 65px;"></div>
+                                <div class="chart-bar expense-bar" style="height: 45px;"></div>
+                                <span>Jan</span>
+                            </div>
+
+                            <div class="chart-bar-group">
+                                <div class="chart-bar income-bar" style="height: 95px;"></div>
+                                <div class="chart-bar expense-bar" style="height: 65px;"></div>
+                                <span>Feb</span>
+                            </div>
+
+                            <div class="chart-bar-group">
+                                <div class="chart-bar income-bar" style="height: 125px;"></div>
+                                <div class="chart-bar expense-bar" style="height: 80px;"></div>
+                                <span>Mar</span>
+                            </div>
+
+                            <div class="chart-bar-group active-month">
+
+                                <div class="chart-bar income-bar" style="height: 170px;"></div>
+                                <div class="chart-bar expense-bar" style="height: 135px;"></div>
+
+                                <span>Apr</span>
+
+                            </div>
+
+                            <div class="chart-bar-group">
+                                <div class="chart-bar income-bar" style="height: 110px;"></div>
+                                <div class="chart-bar expense-bar" style="height: 85px;"></div>
+                                <span>May</span>
+                            </div>
+
+                            <div class="chart-bar-group">
+                                <div class="chart-bar income-bar" style="height: 145px;"></div>
+                                <div class="chart-bar expense-bar" style="height: 105px;"></div>
+                                <span>Jun</span>
+                            </div>
+
+                            <div class="chart-bar-group">
+                                <div class="chart-bar income-bar" style="height: 120px;"></div>
+                                <div class="chart-bar expense-bar" style="height: 90px;"></div>
+                                <span>Jul</span>
+                            </div>
+
+                            <div class="chart-bar-group">
+                                <div class="chart-bar income-bar" style="height: 155px;"></div>
+                                <div class="chart-bar expense-bar" style="height: 110px;"></div>
+                                <span>Aug</span>
+                            </div>
+
+                            <div class="chart-bar-group">
+                                <div class="chart-bar income-bar" style="height: 90px;"></div>
+                                <div class="chart-bar expense-bar" style="height: 70px;"></div>
+                                <span>Sep</span>
+                            </div>
+
+                            <div class="chart-bar-group">
+                                <div class="chart-bar income-bar" style="height: 135px;"></div>
+                                <div class="chart-bar expense-bar" style="height: 100px;"></div>
+                                <span>Oct</span>
+                            </div>
+
+                            <div class="chart-bar-group">
+                                <div class="chart-bar income-bar" style="height: 105px;"></div>
+                                <div class="chart-bar expense-bar" style="height: 75px;"></div>
+                                <span>Nov</span>
+                            </div>
+
+                            <div class="chart-bar-group">
+                                <div class="chart-bar income-bar" style="height: 160px;"></div>
+                                <div class="chart-bar expense-bar" style="height: 120px;"></div>
+                                <span>Dec</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section class="panel transactions-panel">
+
+                    <div class="panel-header">
+
+                        <h3>Recent Transactions</h3>
+
+                        <button class="view-all-btn">
+                            View All
+                        </button>
+
+                    </div>
+
+
+                    <div class="transaction-list" id="transactionList">
+
+                        <div class="transaction">
+
+                            <div class="transaction-left">
+
+                                <div class="transaction-icon shopping">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Shopping</strong>
+                                    <span>Today, 10:30 AM</span>
+                                </div>
+
+                            </div>
+
+                            <strong class="transaction-expense">
+                                Rs 1,025.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="transaction">
+
+                            <div class="transaction-left">
+
+                                <div class="transaction-icon income">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Salary</strong>
+                                    <span>Yesterday</span>
+                                </div>
+
+                            </div>
+
+                            <strong class="transaction-income">
+                                +Rs 40,500.00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="transaction">
+
+                            <div class="transaction-left">
+
+                                <div class="transaction-icon food">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Restaurant</strong>
+                                    <span>Yesterday, 7:20 PM</span>
+                                </div>
+
+                            </div>
+
+                            <strong class="transaction-expense">
+                                Rs 1,345.00
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+            <aside class="panel expenses-panel">
+
+                <div class="panel-header">
+
+                    <h3>All Expenses</h3>
+
+                    <button class="dots-btn">
+                        <i class="fas fa-ellipsis"></i>
+                    </button>
+
+                </div>
+
+
+                <h2 class="total-expense" id="totalExpense">
+                    Rs 1548.00
+                </h2>
+
+
+                <div class="expense-tabs">
+
+                    <button class="tab active-tab">Daily</button>
+                    <button class="tab">Weekly</button>
+                    <button class="tab">Monthly</button>
+
+                </div>
+
+
+                <div class="expense-line">
+                    <div class="line-fill"></div>
+                </div>
+
+
+                <div class="expense-category-list">
+
+
+                    <div class="expense-category">
+
+                        <div class="category-name">
+
+                            <span class="dot health-dot"></span>
+
+                            <span>Health</span>
+
+                        </div>
+
+                        <strong>Rs 283</strong>
+
+                    </div>
+
+
+                    <div class="expense-category">
+
+                        <div class="category-name">
+
+                            <span class="dot entertainment-dot"></span>
+
+                            <span>Entertainment</span>
+
+                        </div>
+
+                        <strong>Rs 500</strong>
+
+                    </div>
+
+
+                    <div class="expense-category">
+
+                        <div class="category-name">
+
+                            <span class="dot shopping-dot"></span>
+
+                            <span>Shopping</span>
+
+                        </div>
+
+                        <strong>Rs 650</strong>
+
+                    </div>
+
+
+                    <div class="expense-category">
+
+                        <div class="category-name">
+
+                            <span class="dot transport-dot"></span>
+
+                            <span>Transport</span>
+
+                        </div>
+
+                        <strong>Rs 115</strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="expense-footer">
+
+                    <button>
+                        <i class="fas fa-download"></i>
+                        Export
+                    </button>
+
+                    <button>
+                        <i class="fas fa-filter"></i>
+                        Filter
+                    </button>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+    <div class="floating-buttons">
+
+        <button class="floating-btn plus-btn" id="floatingAdd">
+            <i class="fas fa-plus"></i>
+        </button>
+
+        <button class="floating-btn minus-btn" id="floatingRemove">
+            <i class="fas fa-minus"></i>
+        </button>
+
+    </div>
+
+    <div class="modal" id="transactionModal">
+
+        <div class="modal-content">
+
+            <button class="close-modal" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <h2>Add Transaction</h2>
+
+            <input
+                type="text"
+                id="transactionName"
+                placeholder="Transaction name">
+
+            <input
+                type="number"
+                id="transactionAmount"
+                placeholder="Amount">
+
+            <select id="transactionType">
+                <option value="expense">Expense</option>
+                <option value="income">Income</option>
+            </select>
+
+            <button class="save-transaction" id="saveTransaction">
+                Add Transaction
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
